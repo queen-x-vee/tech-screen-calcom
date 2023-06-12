@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
+import { BookingAppearance } from "@calcom/features/settings/BookingAppearance";
 import ThemeLabel from "@calcom/features/settings/ThemeLabel";
 import { getLayout } from "@calcom/features/settings/layouts/SettingsLayout";
 import { APP_NAME } from "@calcom/lib/constants";
@@ -95,6 +96,35 @@ const AppearanceView = () => {
         });
       }}>
       <Meta title={t("appearance")} description={t("appearance_description")} />
+      <BookingAppearance
+        text="Summarise what happened"
+        subText="Describe what can be done about it here."
+        variant="default"
+        action="Action"
+        dismiss="Dismiss"
+      />
+      <BookingAppearance
+        text="Summarise what happened"
+        subText="Describe what can be done about it here."
+        variant="info"
+        action="Action"
+        dismiss="Dismiss"
+      />
+      <BookingAppearance
+        text="Summarise what happened"
+        subText="Describe what can be done about it here."
+        variant="warning"
+        action="Action"
+        dismiss="Dismiss"
+      />
+      <BookingAppearance
+        text="Summarise what happened"
+        subText="Describe what can be done about it here."
+        variant="error"
+        action="Action"
+        dismiss="Dismiss"
+        errs="Optional error output for debugging"
+      />
       <div className="mb-6 flex items-center text-sm">
         <div>
           <p className="text-default font-semibold">{t("theme")}</p>

@@ -13,9 +13,31 @@ export type TopBannerProps = {
 };
 
 const variantClassName = {
-  default: "bg-gradient-primary",
-  warning: "bg-orange-400",
-  error: "bg-red-400",
+  default: "dark:bg-[#2E2E2E] bg-[#F3F4F6]",
+  info: "dark:bg-[#253985] bg-[#DEE9FC]",
+  warning: "dark:bg-[#73321B] bg-[#FCEED8]",
+  error: "dark:bg-[#752522] bg-[#F9E3E2]",
+};
+
+const infoVariantClassName = {
+  default: "dark:text-[#FCFCFD] text-[#101010]",
+  info: "dark:text-[#F0F6FE] text-[#253985]",
+  warning: "dark:text-[#FCEED8] text-[#73321B]",
+  error: "dark:text-[#F9E3E2] text-[#752522]",
+};
+
+const colorVariantClassName = {
+  default: "dark:text-[#D6D6D6] text-[#374151]",
+  info: "dark:text-[#C4DAFB] text-[#253985]",
+  warning: "dark:text-[#F8D8B0] text-[#73321B]",
+  error: "dark:text-[#F8D8B0] text-[#752522]",
+};
+
+const buttonVariantClassName = {
+  default: "dark:text-[#FCFCFD] text-[#101010",
+  info: "dark:text-[#F0F6FE] text-[#253985]",
+  warning: "dark:text-[#FCEED8] text-[#73321B]",
+  error: "dark:text-[#F9E3E2] text-[#752522]",
 };
 
 export function TopBanner(props: TopBannerProps) {
@@ -25,19 +47,28 @@ export function TopBanner(props: TopBannerProps) {
       data-testid="banner"
       className={classNames(
         "flex min-h-[40px] w-full items-start justify-between gap-8 py-2 px-4 text-center lg:items-center",
-        variantClassName[variant]
+        variantClassName[variant],
+        colorVariantClassName[variant]
       )}>
       <div className="flex flex-1 flex-col items-start justify-center gap-2 p-1 lg:flex-row lg:items-center">
         <p className="text-emphasis flex flex-col items-start justify-center gap-2 text-left font-sans text-sm font-medium leading-4 lg:flex-row lg:items-center">
           {variant === "error" && (
-            <FiAlertTriangle className="text-emphasis h-4 w-4 stroke-[2.5px]" aria-hidden="true" />
+            <FiAlertTriangle
+              className={classNames("text-emphasis h-4 w-4 stroke-[2.5px]", infoVariantClassName[variant])}
+              aria-hidden="true"
+            />
           )}
           {variant === "warning" && (
-            <FiInfo className="text-emphasis h-4 w-4 stroke-[2.5px]" aria-hidden="true" />
+            <FiInfo
+              className={classNames("text-emphasis h-4 w-4 stroke-[2.5px]", infoVariantClassName[variant])}
+              aria-hidden="true"
+            />
           )}
           {text}
         </p>
-        {actions && <div className="text-sm font-medium">{actions}</div>}
+        {actions && (
+          <div className={classNames("text-sm font-medium", buttonVariantClassName[variant])}>{actions}</div>
+        )}
       </div>
       {typeof onClose === "function" && (
         <button
