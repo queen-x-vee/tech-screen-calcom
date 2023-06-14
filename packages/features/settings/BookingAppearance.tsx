@@ -1,11 +1,10 @@
-//import { XIcon } from "@heroicons/react/solid";
 import classNames from "classnames";
-//import { noop } from "lodash";
 import type { ReactNode } from "react";
 
-//import { FiAlertTriangle, FiInfo } from "../icon";
 import { FiInfo } from "@calcom/ui/components/icon";
 
+//The purpose of this component is to give the user an idea of what colors to expect in inline banners in different modes.
+//It is used in the Appearance page
 export type BookingAppearanceProps = {
   text: string;
   subText: string;
