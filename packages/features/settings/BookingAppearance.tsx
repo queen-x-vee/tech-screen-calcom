@@ -70,7 +70,6 @@ export function BookingAppearance(props: BookingAppearanceProps) {
             <p className=" mt-2 font-mono text-[10px] font-medium leading-[16px]">{errs}</p>
           </div>
         </div>
-
         <div
           className={classNames(
             "flex flex-row gap-7 text-[14px] font-medium leading-[16px] ",
