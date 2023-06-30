@@ -6,6 +6,28 @@ import { FiCheck, FiInfo } from "../icon";
 type IToast = {
   message: string;
   toastVisible: boolean;
+  variant?: "default" | "info" | "warning" | "error";
+};
+
+const variantClassName = {
+  default: "dark:bg-[#2E2E2E] bg-[#F3F4F6]",
+  info: "dark:bg-[#253985] bg-[#DEE9FC]",
+  warning: "dark:bg-[#73321B] bg-[#FCEED8]",
+  error: "dark:bg-[#752522] bg-[#F9E3E2]",
+};
+
+const infoVariantClassName = {
+  default: "dark:text-[#FCFCFD] text-[#101010]",
+  info: "dark:text-[#F0F6FE] text-[#253985]",
+  warning: "dark:text-[#FCEED8] text-[#73321B]",
+  error: "dark:text-[#F9E3E2] text-[#752522]",
+};
+
+const colorVariantClassName = {
+  default: "dark:text-[#D6D6D6] text-[#374151]",
+  info: "dark:text-[#C4DAFB] text-[#253985]",
+  warning: "dark:text-[#F8D8B0] text-[#73321B]",
+  error: "dark:text-[#F8D8B0] text-[#752522]",
 };
 
 export const SuccessToast = ({ message, toastVisible }: IToast) => (
@@ -24,11 +46,14 @@ export const SuccessToast = ({ message, toastVisible }: IToast) => (
 export const ErrorToast = ({ message, toastVisible }: IToast) => (
   <div
     className={classNames(
-      "animate-fade-in-up bg-error text-error dark:bg-error mb-2 flex h-auto items-center space-x-2 rounded-md p-3 text-sm font-semibold  shadow-md rtl:space-x-reverse  dark:text-[#F8D8B0]  md:max-w-sm",
-      toastVisible && "animate-fade-in-up"
+      "animate-fade-in-up mb-2 flex h-auto items-center space-x-2 rounded-md p-3 text-sm font-semibold  shadow-md rtl:space-x-reverse  dark:text-[#F8D8B0]  md:max-w-sm",
+      toastVisible && "animate-fade-in-up",
+      variantClassName["error"],
+      colorVariantClassName["error"],
+      infoVariantClassName["error"]
     )}>
     <span>
-      <FiInfo className="text-error dark:text-error h-4 w-4 " />
+      <FiInfo className=" h-4 w-4 " />
     </span>
     <p data-testid="toast-error">{message}</p>
   </div>
@@ -38,7 +63,10 @@ export const WarningToast = ({ message, toastVisible }: IToast) => (
   <div
     className={classNames(
       "animate-fade-in-up bg-attention dark:bg-attention dark:text-attention text-attention  mb-2 flex h-auto items-center space-x-2 rounded-md  p-3 text-sm font-semibold  shadow-md rtl:space-x-reverse  md:max-w-sm",
-      toastVisible && "animate-fade-in-up"
+      toastVisible && "animate-fade-in-up",
+      variantClassName["warning"],
+      colorVariantClassName["warning"],
+      infoVariantClassName["warning"]
     )}>
     <span>
       <FiInfo className=" text-attention dark:text-attention h-4 w-4 " />
