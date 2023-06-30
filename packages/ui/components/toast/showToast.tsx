@@ -24,7 +24,7 @@ export const SuccessToast = ({ message, toastVisible }: IToast) => (
 export const ErrorToast = ({ message, toastVisible }: IToast) => (
   <div
     className={classNames(
-      "animate-fade-in-up bg-error text-error mb-2 flex h-auto items-center space-x-2 rounded-md p-3 text-sm font-semibold  shadow-md rtl:space-x-reverse dark:bg-[#752522]  dark:text-[#F8D8B0]  md:max-w-sm",
+      "animate-fade-in-up bg-error text-error dark:bg-error mb-2 flex h-auto items-center space-x-2 rounded-md p-3 text-sm font-semibold  shadow-md rtl:space-x-reverse  dark:text-[#F8D8B0]  md:max-w-sm",
       toastVisible && "animate-fade-in-up"
     )}>
     <span>
@@ -37,11 +37,11 @@ export const ErrorToast = ({ message, toastVisible }: IToast) => (
 export const WarningToast = ({ message, toastVisible }: IToast) => (
   <div
     className={classNames(
-      "animate-fade-in-up  mb-2 flex h-auto items-center space-x-2 rounded-md bg-[#FCEED8] p-3 text-sm font-semibold  text-[#73321B] shadow-md rtl:space-x-reverse dark:bg-[#73321B] dark:text-[#FCEED8] md:max-w-sm",
+      "animate-fade-in-up bg-attention dark:bg-attention dark:text-attention text-attention  mb-2 flex h-auto items-center space-x-2 rounded-md  p-3 text-sm font-semibold  shadow-md rtl:space-x-reverse  md:max-w-sm",
       toastVisible && "animate-fade-in-up"
     )}>
     <span>
-      <FiInfo className="h-4 w-4 text-[#73321B] text-[#FCEED8]" />
+      <FiInfo className=" text-attention dark:text-attention h-4 w-4 " />
     </span>
     <p data-testid="toast-warning">{message}</p>
   </div>
