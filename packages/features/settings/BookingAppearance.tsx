@@ -52,7 +52,7 @@ export function BookingAppearance(props: BookingAppearanceProps) {
       data-testid="banner"
       defaultChecked={defaultChecked}
       className={classNames(
-        "mb-10 min-h-[40px] w-full rounded-[6px] p-3 font-sans  ",
+        "mb-10 min-h-[40px] w-full rounded-[6px] p-3 font-sans",
         variantClassName[variant],
         colorVariantClassName[variant]
       )}>
